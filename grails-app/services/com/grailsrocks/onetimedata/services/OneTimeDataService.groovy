@@ -27,12 +27,15 @@ class OneTimeDataService {
 		if (alreadyGotData) {
 			return alreadyGotData
 		}
-		def s = request.session
-		def data = s[key]
-		s.removeAttribute(key)
-		request['one.time.data.found.'+id] = data != null
-		request[key] = data
-		return data
+		def s = request.getSession(false)
+		if(s) {
+			def data = s[key]
+			s.removeAttribute(key)
+			request['one.time.data.found.'+id] = data != null
+			request[key] = data
+			return data
+		}
+		return null
 	}
 
 	def store(String id, Closure dataSetup) {

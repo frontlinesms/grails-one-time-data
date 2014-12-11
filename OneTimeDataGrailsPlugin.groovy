@@ -1,6 +1,6 @@
 class OneTimeDataGrailsPlugin {
 	// the plugin version
-	def version = "1.1-frontlinesms"
+	def version = "1.2-frontlinesms-SNAPSHOT"
 		// the version or versions of Grails the plugin is designed for
 		def grailsVersion = "1.1 > *"
 		// the other plugins this plugin depends on
